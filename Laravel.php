@@ -1,16 +1,14 @@
 <?php
-
 echo '<pre>';
 var_dump($_POST);
 echo '</pre>';
+
+
+
 //連想配列
 
 //入力、確認、完了 input,php,confirm.php,thanks.php
 //input.php
-
-$pageFlag = 0;
-
-?>
 
 $pageFlag = 0;
 
@@ -22,20 +20,22 @@ if (!empty($_POST['btn_submit'])){
   $pageFlag = 2;
 }
 
+
+?>
+
 <!DOCTYPE html>
 <meta charaset="utf-8">
 <head></head>
 <body>
 
-<?php if($pageFlag === 1) : ?>
 
+<?php if($pageFlag === 1) : ?>
 <form method="POST" action="input.php">
 名前
 <?php echo $_POST['your_name'] ; ?>
 <br>
 メールアドレス
 <?php echo $_POST['email'] ; ?>
-
 
 <input type="submit" name="back" value="戻る">
 <input type="submit" name="btn_submit" value="送信する">
@@ -51,14 +51,18 @@ if (!empty($_POST['btn_submit'])){
 
 <?php if($pageFlag === 0) : ?>
 
-<form method="GET" action="input.php">
+
+<form method="POST" action="input.php">
 名前
-<input type="text" name="your_name" value="<?php echo $_POST['your_name'] ; ?>">
+<input type="text" name="your_name"; ?>
 <br>
 メールアドレス
-<input type="text" name="e-mail" value="<?php echo $_POST['email'] ; ?>">
+<input type="email" name="email"; ?>
 
 <input type="submit" name="btn_confirm" value="確認する">
+
+
+
 
 </form>
 
@@ -66,5 +70,4 @@ if (!empty($_POST['btn_submit'])){
 
 
 </body>
-
 </html>
